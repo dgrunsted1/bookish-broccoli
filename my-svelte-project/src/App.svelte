@@ -23,6 +23,7 @@
 		{:else if currPage == 'fashion'}
 		<h2>fashion</h2>
 		{:else if currPage == 'cooking'}
+		<h2>Food</h2>
 		<Article/>
 		{:else if currPage == 'travel'}
 		<h2>travel</h2>
@@ -48,5 +49,9 @@
 		main {
 			max-width: none;
 		}
+	}
+
+	h2 {
+		padding-top: 56px;
 	}
 </style>

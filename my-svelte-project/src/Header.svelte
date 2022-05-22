@@ -20,9 +20,11 @@
     }
 
     #header {
-        background-color: #8930BD;
         display: flex;
         justify-content: center;
-        
+        position: fixed;
+        width: 100%;
+        background-color: white;
+        top: 0;
     }
 </style>

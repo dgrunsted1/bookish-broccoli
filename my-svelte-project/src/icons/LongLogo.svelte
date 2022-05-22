@@ -3,7 +3,7 @@ height="50px" style="opacity: 100%;"  viewBox="0 0 693.000000 245.000000"
  preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,245.000000) scale(0.100000,-0.100000)"
-fill="#ffffff" stroke="none">
+fill="#8930BD" stroke="none">
 <path d="M5665 2393 c-71 -30 -133 -60 -136 -65 -4 -6 -7 -30 -7 -53 -1 -24
 -10 -97 -21 -162 -30 -176 -62 -546 -64 -733 -2 -139 11 -327 29 -417 4 -23
 42 -44 99 -56 57 -11 57 -8 29 208 -25 191 -25 208 -14 375 24 356 61 611 104
