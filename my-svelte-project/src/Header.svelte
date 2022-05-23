@@ -6,22 +6,18 @@
 
 <div id="header">
     <div id="main_container">
-        <a on:click={() => dispatch('tabChange', 'home')}><LongLogo/></a>
+        <div on:click={() => dispatch('tabChange', 'home')}><LongLogo/></div>
     </div>
 </div>
 
 <style>
-    a {
-        line-height: 1.5;
-        margin-block-start: 0;
-        margin-block-end: 0;
-        align-items: flex-end;
-        color: white;
+    #main_container {
+        padding: 5px 0px 0px 20px;
     }
 
     #header {
         display: flex;
-        justify-content: center;
+        justify-content: left;
         position: fixed;
         width: 100%;
         background-color: white;
