@@ -4,6 +4,7 @@
 	 import Article from './Article.svelte';
 	 import Wordle from './Wordle.svelte';
 	 import PhotographyPage from './PhotographyPage.svelte';
+	 import HighlightReel from './HighlightReel.svelte';
 	 let pages = ['wordle', 'travel', 'music', 'sports', 'fashion', 'cooking', 'tech', 'photography'];
 	 let currPage = 'home';
 
@@ -21,6 +22,7 @@
 		<h2>music</h2>
 		{:else if currPage == 'sports'}
 		<h2>sports</h2>
+		<HighlightReel />
 		{:else if currPage == 'fashion'}
 		<h2>fashion</h2>
 		{:else if currPage == 'cooking'}

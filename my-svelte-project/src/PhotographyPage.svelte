@@ -30,7 +30,7 @@ let photo_num = 66;
     .img_container{
         flex-shrink: 3;
         flex-grow: 0;
-        max-width: 550px;
+        max-width: 750px;
     }
     img {
         width: 95%;
