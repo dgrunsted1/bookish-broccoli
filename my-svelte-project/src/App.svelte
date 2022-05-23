@@ -3,6 +3,7 @@
 	 import SideBar from './SideBar.svelte';
 	 import Article from './Article.svelte';
 	 import Wordle from './Wordle.svelte';
+	 import PhotographyPage from './PhotographyPage.svelte';
 	 let pages = ['wordle', 'travel', 'music', 'sports', 'fashion', 'cooking', 'tech', 'photography'];
 	 let currPage = 'home';
 
@@ -31,6 +32,7 @@
 		<h2>tech</h2>
 		{:else if currPage == 'photography'}
 		<h2>photography</h2>
+		<PhotographyPage />
 		{:else if currPage == 'wordle'}
 		<h2>Wordle</h2>
 		<Wordle/>
