@@ -13,8 +13,10 @@
 <div id="main_container">
     {#each links as link}
         <div class="highlight_container">
-            <iframe aspect-ratio='4/3' src="https://www.youtube.com/embed/{link['link']}?start={link['start']}&autoplay=1&mute=1&controls=0&showinfo=0" title="{link['title']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>{link['title']}</p>
+            <iframe src="https://www.youtube.com/embed/{link['link']}?start={link['start']}&autoplay=1&mute=1&controls=0&showinfo=0" title="{link['title']}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div>
+                <p>{link['title']}</p>
+            </div>
         </div>
     {/each}
 </div>
@@ -29,18 +31,28 @@
         flex-direction: row;
         flex-wrap: wrap;
         align-items:center;
-        justify-content: space-around;
+        justify-content: space-between;
+        /* display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items:center;
+        justify-content: space-around; */
     }
 
     .highlight_container{
-        flex: 1 1 625px;
-        flex-grow: 2;
+        flex-shrink: 3;
+        flex-grow: 1;
+        flex-basis: 750px;
+        /* flex: 1 1 625px;
+        flex-grow: 2; */
     }
     iframe {
+        width: 95%;
         border-radius: 10px;
+        border: 1px solid black;
+        /* border-radius: 10px;
         width:95%;
-        /* height: auto; */
-        height: 100%;
+        height: 100%; */
     }
        
 </style>
