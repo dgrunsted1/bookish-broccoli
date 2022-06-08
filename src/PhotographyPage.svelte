@@ -56,12 +56,13 @@ const remove_curr_photo = (e) => {
     .img_container > img {
         width: 95%;
         border-radius: 10px;
-        transition: width .5s;
+        transition: transform .5s;
     }
 
 
     .img_container > img:hover {
-        width: 250px;
+        /* width: 250px; */
+        transform: scale(1.1)
     }
 
     @media only screen and (min-width: 600px) {
