@@ -21,22 +21,18 @@
 		{:else if currPage == 'music'}
 		<h2>music</h2>
 		{:else if currPage == 'sports'}
-		<h2>sports</h2>
 		<HighlightReel />
 		{:else if currPage == 'fashion'}
 		<h2>fashion</h2>
 		{:else if currPage == 'cooking'}
-		<h2>Food</h2>
 		<Article/>
 		{:else if currPage == 'travel'}
 		<h2>travel</h2>
 		{:else if currPage == 'tech'}
 		<h2>tech</h2>
 		{:else if currPage == 'photography'}
-		<h2>photography</h2>
 		<PhotographyPage />
 		{:else if currPage == 'wordle'}
-		<h2>Wordle</h2>
 		<Wordle/>
 		{:else}
 		<h2>home</h2>
@@ -55,7 +51,7 @@
 		}
 	}
 
-	h2 {
-		padding-top: 56px;
+	main {
+		padding-top: 60px;
 	}
 </style>
