@@ -5,9 +5,13 @@ let mobile = (window.screen.availWidth <= 600) ? true : false;
 
 const show_high_quality = (e) => {
 
-    if (curr_photo == e.target.src) curr_photo = "";
-    else curr_photo = e.target.src;
-    console.log({curr_photo});
+    if (curr_photo == e.target.src){
+        curr_photo = "";
+        if (mobile) e.target.classList.remove('zoom');
+    }else{
+        curr_photo = e.target.src;
+        if (mobile) e.target.classList.add('zoom');
+    }
 }
 
 const remove_curr_photo = (e) => {
@@ -94,6 +98,9 @@ const remove_curr_photo = (e) => {
         margin: 0px 2%;
     }
 
+    .zoom {
+        transform: scale(2);
+    }
 
     
 
