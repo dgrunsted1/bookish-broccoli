@@ -9,8 +9,14 @@ const show_high_quality = (e) => {
         curr_photo = "";
         if (mobile) e.target.classList.remove('zoom');
     }else{
+        if (mobile){
+            let imgs = document.getElementsByTagName('img');
+            [...imgs].forEach(element => {
+                element.classList.remove('zoom');
+            });
+            e.target.classList.add('zoom');
+        }
         curr_photo = e.target.src;
-        if (mobile) e.target.classList.add('zoom');
     }
 }
 
@@ -24,7 +30,7 @@ const remove_curr_photo = (e) => {
         <div id="high_res_img">
             <img src={curr_photo} alt={curr_photo} on:click={remove_curr_photo}/>
             <div id="artist_notes">
-                artists notes will go here
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper ullamcorper dui vel ornare. Suspendisse placerat id justo ut faucibus. Aenean at leo nisi. Nullam pharetra, orci vitae imperdiet cursus, ipsum libero pulvinar lacus, et vulputate elit nunc in tellus. In libero dui, interdum eget ligula et, semper molestie lacus. In viverra sagittis lorem, eget lobortis tellus bibendum sit amet. Pellentesque non dapibus orci, ut interdum nisi. Cras et porttitor diam, sit amet blandit mauris. Duis ullamcorper egestas leo vel eleifend. Praesent malesuada leo vel orci pulvinar mollis. Nam tellus risus, luctus ac nulla in, auctor rutrum turpis. Nam suscipit accumsan quam, et sollicitudin mi feugiat at. Donec rutrum, leo nec dignissim posuere, augue arcu tincidunt mi, non pretium nisi ante nec magna.
             </div>
         </div>
     {/if}
@@ -33,7 +39,7 @@ const remove_curr_photo = (e) => {
             <img src="https://mergeconflict.s3.us-east-2.amazonaws.com/photos/fall_2021/0{i}.jpg" alt="0{i}.jpg" on:click={show_high_quality}/>
             {#if curr_photo == "https://mergeconflict.s3.us-east-2.amazonaws.com/photos/fall_2021/0"+i+".jpg" && mobile}
                 <div id="mobile_artist_notes">
-                    artists notes will go here
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper ullamcorper dui vel ornare. Suspendisse placerat id justo ut faucibus. Aenean at leo nisi. Nullam pharetra, orci vitae imperdiet cursus, ipsum libero pulvinar lacus, et vulputate elit nunc in tellus. In libero dui, interdum eget ligula et, semper molestie lacus. In viverra sagittis lorem, eget lobortis tellus bibendum sit amet. Pellentesque non dapibus orci, ut interdum nisi. Cras et porttitor diam, sit amet blandit mauris. Duis ullamcorper egestas leo vel eleifend. Praesent malesuada leo vel orci pulvinar mollis. Nam tellus risus, luctus ac nulla in, auctor rutrum turpis. Nam suscipit accumsan quam, et sollicitudin mi feugiat at. Donec rutrum, leo nec dignissim posuere, augue arcu tincidunt mi, non pretium nisi ante nec magna.
                 </div>
             {/if}
         </div>
@@ -98,8 +104,8 @@ const remove_curr_photo = (e) => {
         margin: 0px 2%;
     }
 
-    .zoom {
-        transform: scale(2);
+    :global(.zoom) {
+        transform: scale(3);
     }
 
     
