@@ -87,9 +87,11 @@ const remove_curr_photo = (e) => {
         position:relative;
         color: rgb(22, 22, 187);
         background-color: beige;
-        padding: 7px 30px;
+        padding: 7px 15px;
         border: 1px solid black;
         border-radius: 10px;
+        bottom: 50px;
+        margin: 0px 2%;
     }
 
 
