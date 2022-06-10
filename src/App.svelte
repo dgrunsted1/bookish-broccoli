@@ -5,6 +5,7 @@
 	 import Wordle from './Wordle.svelte';
 	 import PhotographyPage from './PhotographyPage.svelte';
 	 import HighlightReel from './HighlightReel.svelte';
+	 import Itinerary from './Itinerary.svelte';
 	 let pages = ['wordle', 'travel', 'music', 'sports', 'fashion', 'cooking', 'tech', 'photography'];
 	 let currPage = 'home';
 
@@ -17,7 +18,7 @@
 	<Header on:tabChange={tabChange}/>
 	<SideBar {currPage} {pages} on:tabChange={tabChange} />
 		{#if currPage == 'travel'}
-		<h2>travel</h2>
+		<Itinerary/>
 		{:else if currPage == 'music'}
 		<h2>music</h2>
 		{:else if currPage == 'sports'}
