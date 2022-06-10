@@ -4,19 +4,22 @@ let entry_types = ['activity', 'travel', 'stay', 'pass'];
 let entries = [];
 
 const add_entry = (e) => {
-    var vals = document.getElementsByTagName('input');
-    let result = [];
+    let vals = document.getElementsByTagName('input');
+    let result = {};
     [...vals].forEach(element => {
-                result[element.name] = element.value;
-            });
+        result[element.name] = element.value;
+        element.value = "";
+    });
+    entries.push(result);
+    entries = entries;
 }
 </script>
 
 <div id="main_container">
     {#each entries as curr}
     <div class="entry_container">
-        {#each curr as [key, val]}
-            <div>
+        {#each Object.entries(curr) as [key, val]}
+            <div class="row">
                 <div>
                     {key}: 
                 </div>
@@ -41,7 +44,7 @@ const add_entry = (e) => {
                 <option value={curr}>{curr}</option>
             {/each}
         </select></div>
-        <div class="button" id="add_entry" on:click={add_entry}>add</div>
+        <button class="button" on:click={add_entry}>ADD</button>
     </div>
 </div>
 
@@ -49,11 +52,32 @@ const add_entry = (e) => {
 
 
 <style>
+
+#main_container {
+    display: flex;
+    flex-direction: column;
+}
 .row {
     display: flex;
     flex-direction: row;
 }
+
+.row > div, label, input {
+    margin: 10px;
+}
+
 .button {
-    background: red;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  padding: 7px 20px;
+  text-align: center;
+  transition: all 250ms;
+}
+
+.button:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
 }
 </style>
