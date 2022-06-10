@@ -4,7 +4,6 @@ let curr_photo = "";
 let mobile = (window.screen.availWidth <= 600) ? true : false;
 
 const show_high_quality = (e) => {
-
     if (curr_photo == e.target.src){
         curr_photo = "";
         if (mobile) e.target.classList.remove('zoom');
@@ -23,13 +22,17 @@ const show_high_quality = (e) => {
 const remove_curr_photo = (e) => {
     curr_photo = "";
 }
+
+const remove_artist_notes = (e) => {
+    e.target.classList.add('no_show');
+}
 </script>
 
 <div id="main_container">
     {#if curr_photo != '' && !mobile}
         <div id="high_res_img">
             <img src={curr_photo} alt={curr_photo} on:click={remove_curr_photo}/>
-            <div id="artist_notes">
+            <div id="artist_notes" on:click={remove_artist_notes}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper ullamcorper dui vel ornare. Suspendisse placerat id justo ut faucibus. Aenean at leo nisi. Nullam pharetra, orci vitae imperdiet cursus, ipsum libero pulvinar lacus, et vulputate elit nunc in tellus. In libero dui, interdum eget ligula et, semper molestie lacus. In viverra sagittis lorem, eget lobortis tellus bibendum sit amet. Pellentesque non dapibus orci, ut interdum nisi. Cras et porttitor diam, sit amet blandit mauris. Duis ullamcorper egestas leo vel eleifend. Praesent malesuada leo vel orci pulvinar mollis. Nam tellus risus, luctus ac nulla in, auctor rutrum turpis. Nam suscipit accumsan quam, et sollicitudin mi feugiat at. Donec rutrum, leo nec dignissim posuere, augue arcu tincidunt mi, non pretium nisi ante nec magna.
             </div>
         </div>
@@ -38,7 +41,7 @@ const remove_curr_photo = (e) => {
         <div class="img_container">
             <img src="https://mergeconflict.s3.us-east-2.amazonaws.com/photos/fall_2021/0{i}.jpg" alt="0{i}.jpg" on:click={show_high_quality}/>
             {#if curr_photo == "https://mergeconflict.s3.us-east-2.amazonaws.com/photos/fall_2021/0"+i+".jpg" && mobile}
-                <div id="mobile_artist_notes">
+                <div id="mobile_artist_notes" on:click={remove_artist_notes}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper ullamcorper dui vel ornare. Suspendisse placerat id justo ut faucibus. Aenean at leo nisi. Nullam pharetra, orci vitae imperdiet cursus, ipsum libero pulvinar lacus, et vulputate elit nunc in tellus. In libero dui, interdum eget ligula et, semper molestie lacus. In viverra sagittis lorem, eget lobortis tellus bibendum sit amet. Pellentesque non dapibus orci, ut interdum nisi. Cras et porttitor diam, sit amet blandit mauris. Duis ullamcorper egestas leo vel eleifend. Praesent malesuada leo vel orci pulvinar mollis. Nam tellus risus, luctus ac nulla in, auctor rutrum turpis. Nam suscipit accumsan quam, et sollicitudin mi feugiat at. Donec rutrum, leo nec dignissim posuere, augue arcu tincidunt mi, non pretium nisi ante nec magna.
                 </div>
             {/if}
@@ -106,6 +109,10 @@ const remove_curr_photo = (e) => {
 
     :global(.zoom) {
         transform: scale(3);
+    }
+
+    :global(.no_show) {
+        display: none;
     }
 
     
