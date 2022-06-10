@@ -85,6 +85,8 @@ const remove_artist_notes = (e) => {
     }
 
     #artist_notes {
+        background-image: url("https://img.freepik.com/free-photo/paperboard-yellow-texture_95678-83.jpg?w=2000&t=st=1654837256~exp=1654837856~hmac=a18a311909ed65cab61c2a0c17f9fcd81d5bcc8aede39d731b5a2ea2d75b735a");
+        opacity: 90%;
         position: fixed;
         bottom: 0;
         left: 50%;
@@ -97,6 +99,8 @@ const remove_artist_notes = (e) => {
     }
 
     #mobile_artist_notes{
+        background-image: url("https://img.freepik.com/free-photo/paperboard-yellow-texture_95678-83.jpg?w=2000&t=st=1654837256~exp=1654837856~hmac=a18a311909ed65cab61c2a0c17f9fcd81d5bcc8aede39d731b5a2ea2d75b735a");
+        opacity: 90%;
         position:relative;
         color: rgb(22, 22, 187);
         background-color: beige;
