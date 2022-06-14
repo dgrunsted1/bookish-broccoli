@@ -1,7 +1,15 @@
 <script>
 
-let entry_types = ['activity', 'travel', 'stay', 'pass'];
+let entry_types = ['activity', 'travel', 'stay'];
 let entries = [];
+let curr_type = entry_types[0];
+let input_data = [{"activity": 
+                    [[{"name": "Title", "type": "text"}, {"name": "description", "type": "text"}], [{"name": "start", "type": "date"}, {"name": "end", "type": "date"}, {"name": "location", "type": "text"}, {"name": "link", "type": "text"}]]
+                }, {"travel": [
+                    [[{"name": "Title", "type": "text"}, {"name": "description", "type": "text"}], [{"name": "start", "type": "date"}, {"name": "end", "type": "date"}, {"name": "departure location", "type": "text"}, {"name": "arrival location", "type": "text"}, {"name": "link", "type": "text"}]]
+                ]}, {"stay": [
+                    [[{"name": "Title", "type": "text"}, {"name": "description", "type": "text"}], [{"name": "start", "type": "date"}, {"name": "end", "type": "date"}, {"name": "location", "type": "text"}, {"name": "link", "type": "text"}]]
+                ]}];
 
 const add_entry = (e) => {
     let vals = document.getElementsByTagName('input');
@@ -33,17 +41,22 @@ const add_entry = (e) => {
     {/each}
 
     <div id="new_entry_container">
-        <div class="row"><label for="title">Title</label><input type="text" name="title"></div>
-        <div class="row"><label for="desc">Description</label><input type="text" name="desc"></div>
-        <div class="row"><label for="start">Start</label><input type="date" name="start"></div>
-        <div class="row"><label for="end">End</label><input type="date" name="end"></div>
-        <div class="row"><label for="location">Location</label><input type="text" name="location"></div>
-        <div class="row"><label for="cost">Cost</label><input type="number" name="cost"></div>
-        <div class="row"><label for="type">Type</label><select type="dropdown" name="Type">
+        <div class="input"><label for="type">Type</label><select type="dropdown" name="Type">
             {#each entry_types as curr}
                 <option value={curr}>{curr}</option>
+            {/each}</select></div>
+        {#each input_data[curr_type] as rows}
+        <div class="row">
+            {#each rows as curr}
+                <div class="input"><label for={curr.name}>{curr.name}</label><input type="text" name={curr.name}></div>
             {/each}
-        </select></div>
+        </div>
+        {/each}
+
+
+
+
+        
         <button class="button" on:click={add_entry}>ADD</button>
     </div>
 </div>
@@ -59,12 +72,34 @@ const add_entry = (e) => {
 }
 .row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+.entry_container {
+    display: flex;
+    flex-direction: column;
+}
+
+#new_entry_container {
+    /* max-width: 600px; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .row > div, label, input {
     margin: 10px;
 }
+
+/* .row > input {
+flex-grow: 5;
+flex-shrink: 0;
+
+} */
 
 .button {
   background-color: #c2fbd7;
@@ -76,8 +111,23 @@ const add_entry = (e) => {
   transition: all 250ms;
 }
 
+.input {
+    display: flex;
+    flex-direction: row;
+}
+
 .button:hover {
   box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
+}
+
+@media only screen and (min-width: 600px) {
+    .row, .entry_container, #new_entry_container {
+        flex-direction: row;
+    }
+
+    .row {
+        flex-wrap: nowrap;
+    }
 }
 </style>
