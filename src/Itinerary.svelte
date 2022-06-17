@@ -20,6 +20,7 @@ const add_entry = (e) => {
     });
     entries.push(result);
     entries = entries;
+    
 }
 </script>
 
