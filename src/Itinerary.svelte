@@ -42,7 +42,7 @@ const add_entry = (e) => {
     {/each}
 
     <div id="new_entry_container">
-        <div class="input"><label for="type">Type</label><select type="dropdown" name="Type">
+        <div class="input"><label for="type">Type</label><select type="dropdown" name="Type" bind:value={curr_type}>
             {#each entry_types as curr}
                 <option value={curr}>{curr}</option>
             {/each}</select></div>
